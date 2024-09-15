@@ -1,0 +1,39 @@
+﻿@model IEnumerable<TESTOWE.Models.ProgramInfo>
+
+@{
+    ViewData["Title"] = "Lista Programów";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center text-primary mb-4">@ViewData["Title"]</h2>
+
+
+              <form class="form-inline mb-4" method="get">
+                <input type="text" name="searchString" class="form-control mr-sm-2" placeholder="Wyszukaj program" value="@ViewBag.CurrentFilter" />
+                <button type="submit" class="btn btn-primary">Szukaj</button>
+            </form>
+
+
+            
+            <table class="table table-hover table-bordered shadow-sm">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nazwa</th>
+                        <th>Opis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var program in Model)
+                    {
+                        <tr>
+                            <td class="font-weight-bold">@program.Name</td>
+                            <td>@program.Description</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
